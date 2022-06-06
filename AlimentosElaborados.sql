@@ -93,9 +93,6 @@ CREATE TABLE IF NOT EXISTS `AlimentosElaborados`.`Lote` (
   `Descripcion` LONGTEXT NULL,
   `PrecioVenta` DECIMAL(5,2) NULL,
   PRIMARY KEY (`idLote`, `IDAlimento`),
-  INDEX `UPC_idx` (`IDAlimento` ASC) VISIBLE,
-  INDEX `fk_Lote_1_idx` (`PlantaElaboracion` ASC) VISIBLE,
-  INDEX `fk_Lote_2_idx` (`LocalDistribuido` ASC) VISIBLE,
   CONSTRAINT `IDAlimento`
     FOREIGN KEY (`IDAlimento`)
     REFERENCES `AlimentosElaborados`.`AlimentoElaborado` (`IDAlimento`)
@@ -137,7 +134,6 @@ CREATE TABLE IF NOT EXISTS `AlimentosElaborados`.`Porcentages` (
   `AlimentoElaborado` INT NOT NULL,
   `Porcentages` DECIMAL(4,2) NULL,
   PRIMARY KEY (`ProductoElaboracion`, `AlimentoElaborado`),
-  INDEX `AlimentoElaborado_idx` (`AlimentoElaborado` ASC) VISIBLE,
   CONSTRAINT `ProductoElaboracion`
     FOREIGN KEY (`ProductoElaboracion`)
     REFERENCES `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`)
@@ -164,8 +160,6 @@ CREATE TABLE IF NOT EXISTS `AlimentosElaborados`.`Empleado` (
   `Puesto` VARCHAR(45) NULL,
   `Telefono` VARCHAR(45) NOT NULL,
   `LugarDeTrabajo` INT NULL,
-  INDEX `CodJefe_idx` (`CodJefe` ASC) VISIBLE,
-  INDEX `LugarDeTrabajo_idx` (`LugarDeTrabajo` ASC) VISIBLE,
   PRIMARY KEY (`IDEmpleado`),
   CONSTRAINT `CodJefe`
     FOREIGN KEY (`CodJefe`)
@@ -189,7 +183,6 @@ CREATE TABLE IF NOT EXISTS `AlimentosElaborados`.`SeElaboraEn` (
   `IDAlimento` INT NOT NULL,
   `idPlantaElaboracion` INT NOT NULL,
   PRIMARY KEY (`IDAlimento`, `idPlantaElaboracion`),
-  INDEX `fk_SeElaboraEn_2_idx` (`idPlantaElaboracion` ASC) VISIBLE,
   CONSTRAINT `fk_SeElaboraEn_1`
     FOREIGN KEY (`IDAlimento`)
     REFERENCES `AlimentosElaborados`.`AlimentoElaborado` (`IDAlimento`)
@@ -3218,7 +3211,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (429, 'eggplant', 63);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (430, 'eggs', 85);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (431, 'elbow macaroni', 30);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (432, 'elderflower syrup', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (432, 'elderflower syrup', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (433, 'emerils original essence', 51);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (434, 'empanada', 39);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (435, 'enchilada sauce', 4);
@@ -3453,7 +3446,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (664, 'herbs', 19);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (665, 'hoisin sauce', 76);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (666, 'homemade chicken broth', 79);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (667, 'homemade chicken stock', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (667, 'homemade chicken stock', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (668, 'hominy', 43);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (669, 'honey', 57);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (670, 'honeydew melon', 26);
@@ -3520,7 +3513,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (731, 'lapsang', 77);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (732, 'large egg whites', 93);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (733, 'large egg yolks', 67);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (734, 'large eggs', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (734, 'large eggs', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (735, 'large flour tortillas', 31);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (736, 'large garlic cloves', 65);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (737, 'lasagna noodles', 22);
@@ -3660,7 +3653,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (871, 'mozzarella cheese', 26);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (872, 'msg', 26);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (873, 'muenster cheese', 49);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (874, 'mung beans', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (874, 'mung beans', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (875, 'muscadine grapes', 94);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (876, 'mushroom caps', 88);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (877, 'mushrooms', 22);
@@ -3737,7 +3730,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (948, 'peas', 73);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (949, 'pecan halves', 47);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (950, 'pecans', 23);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (951, 'pecorino cheese', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (951, 'pecorino cheese', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (952, 'pecorino romano cheese', 92);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (953, 'pectin', 84);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (954, 'peeled fresh ginger', 45);
@@ -3798,7 +3791,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1009, 'pork ribs', 93);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1010, 'pork shoulder roast', 26);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1011, 'pork spare ribs', 62);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1012, 'pork tenderloin', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1012, 'pork tenderloin', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1013, 'port wine', 53);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1014, 'pot roast', 83);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1015, 'potato gnocchi', 69);
@@ -3819,7 +3812,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1030, 'pumpernickel bread', 21);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1031, 'pumpkin', 52);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1032, 'pumpkin pie filling', 68);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1033, 'pure vanilla extract', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1033, 'pure vanilla extract', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1034, 'purple onion', 8);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1035, 'quail', 42);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1036, 'quail eggs', 88);
@@ -4039,7 +4032,7 @@ INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1250, 'sourdough bread', 24);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1251, 'southern comfort', 73);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1252, 'Southern Comfort Liqueur', 78);
-INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1253, 'soy chorizo', 100);
+INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1253, 'soy chorizo', 99);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1254, 'soy milk', 61);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1255, 'soy sauce', 52);
 INSERT INTO `AlimentosElaborados`.`ProductoElaboracion` (`idProductoElaboracion`, `Nombre`, `PrecioPorKilo`) VALUES (1256, 'spaghetti', 71);
